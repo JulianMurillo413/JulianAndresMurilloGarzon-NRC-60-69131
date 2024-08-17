@@ -1,0 +1,49 @@
+#crear clase
+
+class Persona:
+    def __init__(self, nombre, edad, genero, altura):
+
+        self.nombre = nombre
+        self.edad = edad
+        self.genero = genero
+        self.altura = altura
+
+    def correr(self):
+        return f"{self.nombre}, de {self.edad} años y sexo {self.genero}, que mide {self.altura}m, esta corriendo"
+    
+    def hablar(self):
+        return f"{self.nombre}, de {self.edad} años y sexo {self.genero}, que mide {self.altura}m, esta hablando"
+
+#subclase
+
+class Empleado(Persona):
+    def __init__(self, nombre, edad, genero, altura, contratado, salario):
+        super().__init__(nombre, edad, genero, altura)
+
+        self.contratado = contratado
+        self.salario = salario
+
+    def tiene_empleo(self):
+
+        return f"{self.nombre}, de sexo {self.genero} y {self.edad} años de edad, está {self.contratado} con un salario de {self.salario}"
+    
+def definir_persona(persona):
+        
+    print(persona.correr())
+    print(persona.hablar())
+    if isinstance(persona, Empleado):
+        print(persona.tiene_empleo())
+
+#crear instancias
+
+persona1 = Empleado("Julián", 18, "masculino", 1.77, "contratado", 500)
+persona2 = Persona("Andrés", 20, "masculino", 1.80)
+
+definir_persona(persona1)
+definir_persona(persona2)
+
+#llamar metodos
+
+print(persona1.tiene_empleo())
+print(persona2.correr())
+print(persona2.hablar())
